@@ -1,0 +1,87 @@
+:root {
+  --color-invalid: rgb(255, 2, 2);
+  --color-valid: rgba(0, 255, 0, 0.5);
+}
+
+.error-info {
+  display: block;
+  visibility: hidden;
+  margin-left: 15px;
+  margin-top: 1px;
+  font-size: 1rem;
+  color: var(--color-invalid) !important; /* Forcer la couleur rouge */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: none; /* Pas de fond sur le message d’erreur */
+}
+
+.input-box .input-wrapper.error input,
+.input-box .input-wrapper.error select {
+  border: 2px solid var(--color-invalid);
+  background-color: #0f0f10 !important; /* Forcer le fond noir */
+  outline: none !important; /* Supprimer la bordure blanche */
+  box-shadow: none !important; /* Supprimer toute ombre */
+}
+
+.input-box .input-wrapper.error .error-info {
+  visibility: visible;
+  opacity: 1;
+  background: none; /* Pas de fond sur le message d’erreur */
+  color: var(--color-invalid) !important; /* Forcer la couleur rouge */
+}
+
+.input-box .input-wrapper.error {
+  animation: error-shake 600ms ease;
+  background: none; /* Pas de fond sur le conteneur */
+}
+
+@keyframes error-shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Style de base des inputs (déjà défini dans cheatcode.css, mais on garde pour la cohérence) */
+.input-box input,
+.input-box select {
+  padding: 15px 50px 15px 20px;
+  border-radius: 25px;
+  background-color: #0f0f10 !important; /* Forcer le fond noir */
+  border: 2px solid #9d0208;
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  transition: border-color 0.3s ease;
+}
+
+/* Conteneur des inputs */
+.input-box .input-wrapper {
+  position: relative;
+  background: none; /* Pas de fond par défaut */
+}
+
+/* S’assurer que .error n’affecte que #response */
+#response.error {
+  background-color: #f2dede;
+  color: #a94442;
+  border: 1px solid #ebccd1;
+  display: block;
+}
+
+/* S’assurer que .error-info ou .input-wrapper n’hérite pas du fond */
+.input-box .error,
+.input-box .error-info {
+  background: none !important; /* Forcer la suppression du fond */
+}

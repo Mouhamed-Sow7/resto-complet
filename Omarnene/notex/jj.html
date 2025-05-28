@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Mamá Néné</title>
+    <link rel="stylesheet" href="style/cheatcode.css" />
+    <link rel="stylesheet" href="style/core-two.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <h1>
+      <h1>Adama<span>Néne</span></h1>
+      </h1>
+      <nav>
+        <span class="menu-btn"><i class="fa-solid fa-bars"></i></span>
+        <ul>
+          <li><a href="#accueil" class="active">Accueil</a></li>
+          <li><a href="#apropos">A propos</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#reservation">Réservation</a></li>
+          <li class="login"><a href="#" id="loginBtn">Se Connecter</a></li>
+        </ul>
+        <button id="cart-btn">Panier (0)</button>
+      </nav>
+      <div id="cart-popup" class="cart-popup popup hidden">
+        <i class="fa-solid fa-chevron-up"></i>
+        <h2>Votre Panier</h2>
+        <div id="cart-items"></div>
+        <p>Total : <span id="cart-total">0 FCFA</span></p>
+        <button id="close-cart">Fermer</button>
+        <button id="confirm-cart">Confirmer</button>
+      </div>
+    </header>
+    <div class="sub-header">
+      <div class="left">
+        <p class="p-one">Découvrez de nouveaux goûts dans chaque nouvelle bouchée</p>
+        <p class="p-two">
+          Vos repas <span>préférés</span> à portée de main
+        </p>
+        <p class="p-three">
+          Commandez vos repas chez Adama Néné, nous vous assurons une livraison
+          gratuite
+        </p>
+        <a href="#commande" class="btn-commander">
+          Commander <img src="OmarNressource/icon-arrow-right.png" alt="Arrow" />
+        </a>
+      </div>
+      <div class="right img">
+        <img src="OmarNressource/burger.jpg" alt="Burger" />
+      </div>
+    </div>
+    <main class="main-sec">
+      <section class="sec-one">
+        <div class="bloc-left">
+          <h1>Nos plats</h1>
+          <h2>Découvrez nos plats phares</h2>
+          <p>
+            Commandez vos plats préférés et profitez d’une livraison rapide et
+            gratuite
+          </p>
+          <a href="#menu" class="btn-commande" data-nom="Burger Deluxe"
+            data-prix="2500" data-image="OmarNressource/burger.jpg">Commander
+            <img src="OmarNressource/icon-arrow-right.png" alt="Arrow" />
+          </a>
+        </div>
+         <div class="bloc-right">
+          <img
+            src="res/ulvi-safari-Mb6M52y_flw-unsplash.png"
+            alt="food"
+            class="one"
+          />
+          <img src="res/Contour.png" alt="" class="two" />
+        </div>
+      </div>
+      </section>
+      <section class="sec-two">
+        <h1>Nos plats</h1>
+        <div class="img-box">
+          <div class="plat">
+            <img src="OmarNressource/burger.jpg" alt="Burger" />
+            <div class="description">
+              <h2>Burger Deluxe</h2>
+              <div class="price-com">
+                <p>2500 FCFA</p>
+                <button
+                  class="btn-commande"
+                  data-nom="Burger Deluxe"
+                  data-prix="2500"
+                  data-image="OmarNressource/burger.jpg"
+                >
+                  Commander
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="plat">
+            <img src="OmarNressource/fries.jpg" alt="Fries" />
+            <div class="description">
+              <h2>Fries Deluxe</h2>
+              <div class="price-com">
+                <p>1500 FCFA</p>
+                <button
+                  class="btn-commande"
+                  data-nom="Fries Deluxe"
+                  data-prix="1500"
+                  data-image="OmarNressource/fries.jpg"
+                >
+                  Commander
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="menu">
+        <h1>Menu</h1>
+        <div class="line-box">
+          <div class="line">
+            <img src="OmarNressource/burger.jpg" alt="Burger" />
+          </div>
+          <div class="line">
+            <img src="OmarNressource/fries.jpg" alt="Fries" />
+          </div>
+        </div>
+      </section>
+      <section class="reservation">
+        <h1>Réservation</h1>
+        <p>Réservez votre table dès maintenant</p>
+        <div class="res-form">
+          <div class="res-sec">
+            <div class="nom-tel">
+              <div class="input-box">
+                <input type="text" placeholder="Nom" />
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="input-box">
+                <input type="tel" placeholder="Téléphone" />
+                <i class="fas fa-phone"></i>
+              </div>
+            </div>
+            <div class="input-box">
+              <select>
+                <optgroup label="Nombre de personnes">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </optgroup>
+              </select>
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="input-box">
+              <input type="datetime-local" placeholder="Date et heure" />
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+          </div>
+          <div class="res-btn">
+            <button>Réserver</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="box">
+        <div class="left">
+          <h1>Mamá <span>Néné</span></h1>
+          <p>
+            Découvrez de nouveaux goûts dans chaque nouvelle bouchée chez Mamá
+            Néné
+          </p>
+        </div>
+        <div class="mid">
+          <h1>Liens utiles</h1>
+          <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#apropos">A propos</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#reservation">Réservation</a></li>
+          </ul>
+        </div>
+        <div class="right social-icons">
+          <h1>Suivez-nous</h1>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="copy">
+        <p>© 2025 Mamá Néné | <span>Tous droits réservés</span></p>
+      </div>
+    </footer>
+    <div id="login" class="section popup public hidden">
+      <div class="popup-content">
+        <span class="close-btn">×</span>
+        <h2>Connexion</h2>
+        <form id="loginForm">
+          <div class="input-box">
+            <input type="email" id="loginEmail" placeholder="Email" />
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="input-box">
+            <input
+              type="password"
+              id="loginPassword"
+              placeholder="Mot de passe"
+              required
+            />
+            <i class="fas fa-lock"></i>
+          </div>
+          <button type="submit">Se connecter</button>
+        </form>
+        <p id="loginError" class="error"></p>
+      </div>
+    </div>
+    <div id="commandePopup" class="popup hidden">
+      <div class="popup-content">
+        <span class="close-btn">×</span>
+        <h2 id="platNom">Nom du plat</h2>
+        <img id="platImage" src="" alt="Image du plat" class="popup-img" />
+        <p>Prix unitaire : <span id="platPrix">2500</span> FCFA</p>
+        <div class="nom-tel">
+          <label>Quantité:</label>
+          <input
+            type="number"
+            id="quantite"
+            value="1"
+            min="1"
+            title="Quantité"
+            placeholder="Entrez la quantité"
+          />
+          <label>Commentaire:</label>
+          <textarea
+            id="commentaire"
+            placeholder="ex: sans oignons..."
+          ></textarea>
+        </div>
+        <div class="nom-tel">
+          <label>Nom:</label>
+          <input
+            type="text"
+            id="clientNom"
+            title="Nom du client"
+            placeholder="Entrez votre nom"
+          />
+          <label>Téléphone:</label>
+          <input
+            type="tel"
+            id="clientTel"
+            title="Numéro de téléphone"
+            placeholder="Entrez votre numéro de téléphone"
+          />
+        </div>
+        <label>Méthode de paiement :</label>
+        <select id="paiement" title="Méthode de paiement">
+          <option value="cash">Cash</option>
+          <option value="om">Orange Money</option>
+          <option value="wave">Wave</option>
+          <option value="mtn">MTN Money</option>
+          <option value="visa">Visa</option>
+        </select>
+        <p>Total : <span id="total">2500</span> FCFA</p>
+        <div class="bloc-panier">
+          <button id="confirmerCommande">Confirmer</button>
+          <div class="pan">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <button id="btnAjouter" class="btnAjouter">Ajouter au panier</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="javascript/first.js"></script>
+    <script src="javascript/auth.js"></script>
+    <script src="javascript/panier.js"></script>
+    <script src="javascript/post-nodejs.js"></script>
+  </body>
+</html>
+<!-- html { scroll-behavior: smooth; /* Défilement fluide lors de la navigation avec
+les ancres */ } body { margin: 0; padding: 0; /* Police principale pour tout le
+site */ min-height: 100vh; /* Hauteur minimale pour que le footer soit en bas */
+} /* --------------------------------------- */ /* RESERVATION SECTION STYLES -
+Styles pour la section réservation */ /* ---------------------------------------
+*/ .reservation { scroll-margin-top: 180px; padding: 20px; background-image:
+url(../OmarNressource/reservation-section.jpg); background-size: cover;
+background-position: center; width: 90%; margin: 60px auto; border-radius: 35px;
+height: auto; } .reservation h1 { font-size: 2rem; color: #9d0208; text-align:
+center; } .reservation p { font-size: 1.2rem; text-align: center; color: #fff;
+font-weight: 100; margin-bottom: 20px; } .res-form { display: flex;
+flex-direction: column; align-items: center; gap: 20px; } .res-sec { display:
+flex; justify-content: center; flex-wrap: wrap; gap: 20px; } .input-box {
+position: relative; } .input-box input, .input-box select { padding: 15px 50px
+15px 20px; border-radius: 25px; background-color: #0f0f10 !important; /* Forcer
+le fond noir */ border: 2px solid #9d0208; color: #fff; font-size: 1.1rem;
+line-height: 1.4; } .input-box select optgroup { color: red; font-weight: bold;
+} .input-box input { width: 220px; } .input-box select { width: 293px;
+-webkit-appearance: none; -moz-appearance: none; appearance: none; /* Supprimer
+le style natif des select */ } .input-box i { position: absolute; right: 50px;
+top: 35%; transform: translateY(-50%); font-size: 1.3rem; /* Taille
+proportionnelle pour éviter la déformation */ color: #9d0208; background-color:
+#0f0f10; pointer-events: none; width: auto; height: auto; padding: 5px; /*
+Retirer le padding qui déforme */ line-height: 1; /* Garder les proportions
+naturelles */ } .input-box input:focus, .input-box select:focus { outline: none
+!important; /* Supprimer la bordure blanche au focus */ box-shadow: none
+!important; } .res-btn { margin-top: 20px; } .res-btn button { background-color:
+#9d0208; color: #fff; padding: 15px 40px; border: none; border-radius: 30px;
+font-size: 1.5rem; cursor: pointer; transition: background 0.3s; } .res-btn
+button:hover { background-color: #7c0106; /* Rouge plus sombre au survol */ } -->

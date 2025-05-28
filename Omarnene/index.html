@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="style/cheatcode.css" />
+    <link rel="stylesheet" href="style/core-two.css" />
+    <title>AdamaNéne</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>Adama<span>Néne</span></h1>
+      <nav>
+        <ul class="nav-drop">
+          <li><a href="#ac" class="active">Accueil</a></li>
+          <li><a href="#app">A propos</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#res">Réservation</a></li>
+          <li class="login"><a href="#" id="loginBtn">Se Connecter</a></li>
+        </ul>
+      </nav>
+      <div class="menu-btn"><i class="fa-solid fa-bars"></i></div>
+      <button id="cart-btn">
+        <i class="fa-solid fa-cart-shopping"></i> Panier (0)
+      </button>
+
+      <div id="cart-popup" class="cart-popup popup hidden">
+        <i class="fa-solid fa-chevron-up"></i>
+        <h2>Votre Panier</h2>
+        <div id="cart-items"></div>
+        <p>Total : <span id="cart-total">0 FCFA</span></p>
+        <button id="close-cart">Fermer</button>
+        <button id="confirm-cart">Confirmer</button>
+      </div>
+
+      <div id="login" class="section popup public hidden">
+        <div class="popup-content">
+          <span class="close-btn">×</span>
+          <h2>Connexion</h2>
+          <form id="loginForm">
+            <div class="input-box log-in">
+              <input type="email" id="loginEmail" placeholder="Email" />
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="input-box log-in">
+              <input
+                type="password"
+                id="loginPassword"
+                placeholder="Mot de passe"
+                required
+              />
+              <i class="fas fa-lock"></i>
+            </div>
+            <button type="submit">Se connecter</button>
+          </form>
+          <p id="loginError" class="error"></p>
+        </div>
+      </div>
+    </header>
+    <hr />
+
+    <div class="sub-header section public" id="ac">
+      <div class="left">
+        <p class="p-one">
+          Découvrez de nouveaux goûts dans chaque nouvelle bouchée
+        </p>
+        <p class="p-two">
+          Vos <span>repas <br />préférés</span> à <br />portée de main
+        </p>
+        <p class="p-three">
+          Commandez vos repas chez Adama Néne, nous vous <br />assurons une
+          livraison gratuite
+        </p>
+        <button class="btn-commander" id="mn-btn">
+          Commander <img src="res/Vector_1.png" alt="" />
+        </button>
+      </div>
+      <div>
+        <div class="img">
+          <img src="res/picRemov.png" alt="food" />
+        </div>
+      </div>
+    </div>
+
+    <div class="main-sec section public" id="app">
+      <div class="sec-one">
+        <div class="bloc-left">
+          <h1>Apropos</h1>
+          <h2>Adama NENE</h2>
+          <p>
+            Est une entreprise fondée en 2018 & à UGB par <br />un groupe
+            d'étudiants, elle vous assure des <br />repas de qualités à des
+            tarifs <br />exceptionnels
+          </p>
+          <button class="btn-commander">
+            Voir plus <img src="res/Vector.png" alt="" />
+          </button>
+        </div>
+        <div class="bloc-right">
+          <img
+            src="res/ulvi-safari-Mb6M52y_flw-unsplash.png"
+            alt="food"
+            class="one"
+          />
+          <img src="res/Contour.png" alt="" class="two" />
+        </div>
+      </div>
+
+      <div id="commandePopup" class="popup hidden">
+        <div class="popup-content">
+          <span class="close-btn">×</span>
+          <h2 id="platNom">Nom du plat</h2>
+          <img id="platImage" src="" alt="Image du plat" class="popup-img" />
+          <p>Prix unitaire : <span id="platPrix">2500</span> FCFA</p>
+          <div class="nom-tel">
+            <label>Quantité:</label>
+            <input
+              type="number"
+              id="quantite"
+              value="1"
+              min="1"
+              title="Quantité"
+              placeholder="Entrez la quantité"
+            />
+            <label>Commentaire:</label>
+            <textarea
+              id="commentaire"
+              placeholder="ex: sans oignons..."
+            ></textarea>
+          </div>
+          <div class="nom-tel">
+            <label>Nom:</label>
+            <input
+              type="text"
+              id="clientNom"
+              title="Nom du client"
+              placeholder="Entrez votre nom"
+            />
+            <label>Téléphone:</label>
+            <input
+              type="tel"
+              id="clientTel"
+              title="Numéro de téléphone"
+              placeholder="Entrez votre numéro de téléphone"
+            />
+          </div>
+          <label>Méthode de paiement :</label>
+          <select id="paiement" title="Méthode de paiement">
+            <option value="cash">Cash</option>
+            <option value="om">Orange Money</option>
+            <option value="wave">Wave</option>
+            <option value="mtn">MTN Money</option>
+            <option value="visa">Visa</option>
+          </select>
+          <p>Total : <span id="total">2500</span> FCFA</p>
+          <div class="bloc-panier">
+            <button id="confirmerCommande">Confirmer</button>
+            <div class="pan">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <button id="btnAjouter" class="btnAjouter">
+                Ajouter au panier
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec-two section public" id="commander">
+        <h1>LES HOTS</h1>
+        <div class="img-box">
+          <div class="plat">
+            <img src="res/tacos1.png" alt="" />
+            <div class="description">
+              <h2>Tacos</h2>
+              <div class="price-com">
+                <p>1500 FCFA</p>
+                <button
+                  class="btn-commande"
+                  data-nom="Tacos"
+                  data-prix="1500"
+                  data-image="res/tacos1.png"
+                >
+                  Commander
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="plat">
+            <img src="res/burger2.png" alt="Burger" />
+            <div class="description">
+              <h2>Burger</h2>
+              <div class="price-com">
+                <p>2000 FCFA</p>
+                <button
+                  class="btn-commande"
+                  data-nom="Burger"
+                  data-prix="2000"
+                  data-image="res/burger2.png"
+                >
+                  Commander
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="plat">
+            <img src="res/pizza.png" alt="" />
+            <div class="description">
+              <h2>Pizza</h2>
+              <div class="price-com">
+                <p>3500 FCFA</p>
+                <button
+                  class="btn-commande"
+                  data-nom="Pizza"
+                  data-prix="3500"
+                  data-image="res/pizza.png"
+                >
+                  Commander
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu section public" id="menu">
+      <h1>Menu</h1>
+      <div class="line-box">
+        <h2>Ligne menu 1</h2>
+        <div class="line"><img src="OmarNressource/plat1.jpg" alt="" /></div>
+        <div class="line"><img src="OmarNressource/plat2.jpg" alt="" /></div>
+        <div class="line"><img src="OmarNressource/plat3.jpg" alt="" /></div>
+        <div class="line"><img src="OmarNressource/plat4.jpg" alt="" /></div>
+      </div>
+      <div class="line-box">
+        <h2>Ligne menu 2</h2>
+        <div class="line"><img src="OmarNressource/plat5.jpg" alt="" /></div>
+        <div class="line"><img src="OmarNressource/plat6.jpg" alt="" /></div>
+        <div class="line"><img src="OmarNressource/plat7.jpg" alt="" /></div>
+        <div class="line"><img src="OmarNressource/plat8.jpg" alt="" /></div>
+      </div>
+      <div class="line-box">
+        <h2>Ligne menu 3</h2>
+        <div class="line"><img src="OmarNressource/plat9.jpg" alt="" /></div>
+        <div class="line"><img src="OmarNressource/plat10.jpg" alt="" /></div>
+        <div class="line"><img src="OmarNressource/plat11.jpg" alt="" /></div>
+        <div class="line"><img src="OmarNressource/plat12.jpg" alt="" /></div>
+      </div>
+      <div class="line-box">
+        <h2>Ligne menu 4</h2>
+        <div class="line"><img src="OmarNressource/plat13.jpg" alt="" /></div>
+        <div class="line"><img src="OmarNressource/plat14.jpg" alt="" /></div>
+        <div class="line"><img src="OmarNressource/plat15.jpg" alt="" /></div>
+        <div class="line"><img src="OmarNressource/plat16.jpg" alt="" /></div>
+      </div>
+    </div>
+
+    <div class="reservation section public" id="res">
+      <h1>Réservation</h1>
+      <p>Faites vos réservations dans le coin le plus chic du campus</p>
+      <form class="res-form" id="reservationForm" novalidate>
+        <div class="res-sec">
+          <div class="input-box">
+            <div class="input-wrapper">
+              <input
+                type="text"
+                name="prenom"
+                id="prenom"
+                placeholder="prenom"
+                required
+              />
+              <i class="fas fa-user"></i>
+              <span class="error-info">Veuillez entrer un prénom valide</span>
+            </div>
+          </div>
+          <div class="input-box">
+            <div class="input-wrapper">
+              <input
+                type="tel"
+                name="tel"
+                id="tel"
+                placeholder="Tel"
+                required
+              />
+              <i class="fas fa-phone"></i>
+              <span class="error-info"
+                >Veuillez entrer un numéro de téléphone valide</span
+              >
+            </div>
+          </div>
+          <div class="input-box">
+            <div class="input-wrapper">
+              <input
+                class="input-group"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                required
+              />
+              <i class="fas fa-envelope"></i>
+              <span class="error-info">Veuillez entrer un email valide</span>
+            </div>
+          </div>
+        </div>
+        <div class="res-sec">
+          <div class="input-box">
+            <div class="input-wrapper">
+              <select
+                name="personnes"
+                id="personnes"
+                title="Nombre de personnes"
+                required
+              >
+                <option value="1">1 personne</option>
+                <option value="2">2 personnes</option>
+                <option value="3">3 personnes</option>
+                <option value="4">4 personnes</option>
+                <option value="5">5+ personnes</option>
+              </select>
+              <i class="fas fa-chevron-down"></i>
+              <span class="error-info"
+                >Veuillez sélectionner le nombre de personnes</span
+              >
+            </div>
+          </div>
+          <div class="input-box">
+            <div class="input-wrapper">
+              <input
+                type="date"
+                name="date"
+                id="date"
+                required
+                title="Select a date"
+                placeholder="YYYY-MM-DD"
+              />
+              <i class="fas fa-calendar" id="cl"></i>
+              <span class="error-info">Veuillez sélectionner une date</span>
+            </div>
+          </div>
+          <div class="input-box">
+            <div class="input-wrapper">
+              <input
+                type="time"
+                name="time"
+                id="time"
+                value="19:00"
+                required
+                title="Select a time"
+                placeholder="HH:MM"
+              />
+              <i class="fas fa-clock"></i>
+              <span class="error-info">Veuillez sélectionner une heure</span>
+            </div>
+          </div>
+        </div>
+        <div class="input-box">
+          <div class="input-wrapper">
+            <label for="table"><i class="fas fa-chair"></i></label>
+            <label for="table">
+              <select name="table" id="table" required>
+                <option disabled selected>Choisissez une table</option>
+                <optgroup label="En Haut (VIP)">
+                  <option value="1">Table 1</option>
+                  <option value="2">Table 2</option>
+                  <option value="3">Table 3</option>
+                  <option value="4">Table 4</option>
+                  <option value="5">Table 5</option>
+                  <option value="6">Table 6</option>
+                </optgroup>
+                <optgroup label="En Bas (Normal)">
+                  <option value="1">Table 1</option>
+                  <option value="2">Table 2</option>
+                  <option value="3">Table 3</option>
+                  <option value="4">Table 4</option>
+                  <option value="5">Table 5</option>
+                  <option value="6">Table 6</option>
+                </optgroup>
+              </select>
+              <span class="error-info">Veuillez choisir une table</span>
+            </label>
+          </div>
+        </div>
+        <div class="res-btn">
+          <button type="submit">Réserver</button>
+        </div>
+      </form>
+      <p id="response"></p>
+    </div>
+    <div class="liste-res section public">
+      <h1>Liste de réservation</h1>
+      <table id="reservationsTable">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Date</th>
+            <th>Heure</th>
+            <th>Table</th>
+            <th>Section</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="reservationsBody"></tbody>
+      </table>
+      <div class="custom-alert-reservation" id="successAlert">
+        <i class="fas fa-check-circle"></i>
+        <p>Votre réservation a été annulée avec succès</p>
+      </div>
+    </div>
+
+    <!-- Ajout des sections protégées -->
+    <div id="dashboard" class="section admin-only">
+      <h1>Tableau de bord</h1>
+      <div class="stats">
+        <p>Commandes aujourd'hui : <span id="ordersToday">0</span></p>
+        <p>Réservations aujourd'hui : <span id="reservationsToday">0</span></p>
+        <p>Revenus totaux : <span id="totalRevenue">0 FCFA</span></p>
+      </div>
+      <canvas id="ordersChart" width="400" height="200"></canvas>
+    </div>
+
+    <div id="memberArea" class="section member-only">
+      <h1>Bienvenue, membre !</h1>
+      <p>Voici votre espace personnel.</p>
+    </div>
+
+    <footer class="footer section public">
+      <div class="box">
+        <div class="left">
+          <h1>Adama<span>Néne</span></h1>
+        </div>
+        <div class="mid">
+          <h1>Liens</h1>
+          <ul>
+            <li><a href="#ac">Accueil</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#app">A propos</a></li>
+            <li><a href="#res">Réservation</a></li>
+            <li><a href="#login">Se Connecter</a></li>
+          </ul>
+        </div>
+        <div class="right">
+          <h1>Nous Contacter</h1>
+          <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copy">
+        <p>© 2025 AdamaNéne. Tous droits réservés à Elmaestro_Dev</p>
+      </div>
+    </footer>
+
+    <script src="javascript/first.js"></script>
+    <script src="javascript/auth.js"></script>
+    <script src="javascript/panier.js"></script>
+    <script src="javascript/post-nodejs.js"></script>
+  </body>
+</html>

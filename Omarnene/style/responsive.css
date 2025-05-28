@@ -1,0 +1,257 @@
+@media (max-width: 980px) {
+  .menu-btn {
+    display: flex;
+  }
+  nav ul {
+    display: none;
+    position: absolute;
+    top: 58px;
+    right: 15px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #89808069;
+    backdrop-filter: blur(10px);
+    width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+
+  .nav-drop.open-off {
+    display: flex;
+  }
+  .sub-header {
+    flex-direction: column;
+  }
+  .sub-header .left {
+    align-items: center;
+    font-size: 1.3rem;
+  }
+  .sub-header .right {
+    margin-top: 20px;
+  }
+  .sec-one {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding-top: 55px;
+  }
+  .sec-one .bloc-right {
+    display: none;
+    bottom: 70px;
+  }
+  .sec-two {
+    margin-left: 0;
+  }
+  .sec-two .description {
+    padding: 10px;
+    margin: 0 auto;
+    width: 82%;
+    height: fit-content;
+    bottom: -85px;
+    background-color: #9d02075f;
+  }
+  .sec-two .plat .price-com {
+    flex-direction: column;
+  }
+  .price-com button {
+    width: 100px;
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+}
+
+/* animation */
+.hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 2s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* hover effet de rotation pour image */
+
+.line:hover img {
+  transform: rotate(360deg);
+  transition: all 1s ease;
+}
+img {
+  transition: all 0.7s ease;
+}
+#cl {
+  /* position: absolute; */
+  background-color: #0f0f10;
+  padding: 0 25px;
+}
+/* pop up */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.popup h2 {
+  text-align: center;
+}
+.popup.hidden {
+  display: none;
+}
+.popup-img {
+  width: 100%;
+  max-height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  /* margin-bottom: 1rem; */
+}
+
+.popup-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 24px;
+}
+/* CUSTOM */
+.popup-content input,
+.popup-content textarea,
+.popup-content select {
+  width: 100%;
+  padding: 8px;
+  /* margin-bottom: 1rem; */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.popup-content label {
+  font-weight: 500;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 2px;
+}
+#confirmerCommande {
+  background-color: #e63946;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 1rem;
+}
+#confirmerCommande:hover {
+  background-color: #c81c28;
+}
+.popup-content {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+}
+label i {
+  margin-right: 6px;
+  color: #e63946;
+}
+.bloc-panier {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.bloc-panier .pan #btnAjouter {
+  /* color: white; */
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+
+  transition: background 0.3s ease;
+}
+@media screen and (max-width: 600px) {
+  .popup-content {
+    width: 90%;
+  }
+}
+/* gestion de table */
+.pop-up {
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #e63946;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  font-size: 1.1rem;
+  opacity: 0;
+  transition: all 0.5s ease;
+  z-index: 9999;
+}
+
+.pop-up.show {
+  top: 30px;
+  opacity: 1;
+}
+/* panier */
+
+/* Positionner le popup près du bouton Panier */
+.cart-popup {
+  position: absolute;
+  top: 95px; /* ajustable selon ta navbar */
+  right: 10px;
+  border-top-right-radius: 10px;
+  background-color: #9d0208;
+
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  z-index: 999;
+  display: none; /* Caché par défaut */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+/* Contenu bien aligné à l’intérieur */
+.cart-item-colonne {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.cart-popup h2 {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.quantity-input {
+  width: 60px;
+  margin: 5px 0;
+  padding: 4px;
+  text-align: center;
+}
+.divider {
+  width: 100%;
+  height: 4px;
+  background-color: #03071e;
+  margin: 10px 0;
+}
